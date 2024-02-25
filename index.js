@@ -7,19 +7,26 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", async (req, res) => {
-  console.log(req.body);
-  const { username, email, password } = req.body;
-
-  const newUser = await prisma.user.create({
-    data: {
-      username: username,
-      email: email,
-      password: password,
-    },
-  });
-  return res.json({ msg: "user created", newUser });
+ // signup logic 
 });
 
 app.listen(PORT, () => {
   console.log("server started");
 });
+
+app.post("/login", (req, res)=>{
+  // write the logic for accepting the username and password and check if the user exists in the database
+  //login
+}) 
+
+app.get("/products", (req, res) => {
+  //write the logic to fetch all the products from the db and list them all 
+  // name, price, description
+})
+
+app.get("/products/:categoryName", (req, res) => {
+  //write the logic to fetch all the products in a particular category mentioned in the path params
+  // name, price, description
+})
+
+
